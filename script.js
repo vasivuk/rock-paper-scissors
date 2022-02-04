@@ -44,8 +44,8 @@ function gameRound(playerSelection, computerSelection){
 function game() {
     let playerWin = 0;
     let computerWin = 0;
-
-    for(let i = 0; i < 5; i++){
+    for(let i = 1; i < 6; i++){
+        console.log("Round " + i);
         let round = gameRound(prompt("Insert rock,paper or scissors:").toLowerCase(), computerPlay());
         console.log(round);
         if(round.charAt(4) === 'w'){
