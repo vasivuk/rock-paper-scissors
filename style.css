@@ -99,7 +99,7 @@ h1 {
 }
 
 .footer-section {
-    background-color: #081B29;
+    background-color: #081b29;
     font-size: 24px;
     padding: 25px;
     display: flex;
@@ -109,6 +109,20 @@ h1 {
     justify-content: center;
 }
 
+.play {
+    background-color: rgba(255, 255, 255, 0.1);
+    font-size: 100px;
+    text-decoration: none;
+    border: 10px solid white;
+    padding: 30px 80px;
+    border-radius: 50px;
+}
+
+.play:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: rgb(255, 233, 108);
+    border-color: rgb(255, 233, 108);
+}
 
 
 
