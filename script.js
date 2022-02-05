@@ -1,3 +1,7 @@
+document.getElementById("rock").addEventListener('click', () => console.log("rock"));
+document.getElementById("paper").addEventListener('click', () => console.log("hello"));
+document.getElementById("scissors").addEventListener('click', () => console.log("hello"));
+
 function computerPlay(){
     //Random number from 0 to 99
     let num = Math.floor(Math.random()*100);

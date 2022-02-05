@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    color: white;
+    color: rgb(223, 223, 223);
     font-family: 'Courier New', Courier, monospace;
 }
 
@@ -19,7 +19,6 @@ body {
 
 .header-section {
     background-color: #081B29;
-    color: white;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -36,7 +35,6 @@ h1 {
 .header-section p {
     font-size: 24px;
     font-weight: 700px;
-    margin: 15px;
 }
 
 /* SCORE SECTION */
@@ -45,6 +43,7 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .score-section h2 {
