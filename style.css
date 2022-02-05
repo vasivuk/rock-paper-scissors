@@ -91,6 +91,7 @@ h1 {
 
 .card i {
     font-size: 150px;
+    color: rgb(212, 212, 212);
 }
 
 .card:hover {
