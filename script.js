@@ -1,8 +1,17 @@
-const rock = document.getElementById("rock").addEventListener('click', () => console.log("rock"));
-const paper = document.getElementById("paper").addEventListener('click', () => console.log("hello"));
-const scissors = document.getElementById("scissors").addEventListener('click', () => playerScore.textContent = parseInt(playerScore.textContent) + 1);
+const rock = document.getElementById("rock");
+rock.addEventListener('click', () => gameRound("rock", computerPlay()));
+const paper = document.getElementById("paper");
+paper.addEventListener('click', () => gameRound("paper", computerPlay()));
+const scissors = document.getElementById("scissors");
+scissors.addEventListener('click', () => gameRound("scissors", computerPlay()));
+
 const playerScore = document.querySelector("#player .points");
-const computerScore = document.querySelector("#player .points");
+const computerScore = document.querySelector("#computer .points");
+const round = document.querySelector(".round span");
+const victorText = document.querySelector(".victor-text");
+
+
+
 
 function computerPlay(){
     //Random number from 0 to 99
@@ -16,59 +25,73 @@ function computerPlay(){
     }
 }
 
+function playerWins(message){
+    let score = parseInt(playerScore.textContent);
+    playerScore.textContent = ++score;
+    if(score === 5) {
+        victorText.textContent = "Player wins the game!";
+        rock.removeEventListener('click', () => gameRound("rock", computerPlay()));
+        paper.removeEventListener('click', () => gameRound("paper", computerPlay()));
+        scissors.removeEventListener('click', () => gameRound("scissors", computerPlay()));
+        return;        
+    }
+    victorText.textContent = message;
+    round.textContent = parseInt(round.textContent) + 1;
+}
+
+function computerWins(message){
+    let score = parseInt(computerScore.textContent);
+    computerScore.textContent = ++score;
+    if(score === 5) {
+        victorText.textContent = "Computer wins the game!";
+        rock.removeEventListener('click', () => gameRound("rock", computerPlay()));
+        paper.removeEventListener('click', () => gameRound("paper", computerPlay()));
+        scissors.removeEventListener('click', () => gameRound("scissors", computerPlay()));
+        return;
+    }
+    victorText.textContent = message;
+    round.textContent = parseInt(round.textContent) + 1;
+
+}
+
 function gameRound(playerSelection, computerSelection){
     switch(playerSelection){
         case "rock":
             if(computerSelection === "paper"){
-                return "You lose! Rock loses to Paper!";
+                computerWins("You lose! Rock loses to Paper!");
+                break;
             } else if(computerSelection === "scissors"){
-                return "You win! Rock beats Scissors!";
+                playerWins("You win! Rock beats Scissors!");
+                break;
             } else {
-                return "Draw! Both chose rock!";
+                victorText.textContent = "Draw! Both chose rock!";
+                break;
             }
         case "scissors":
             if(computerSelection === "paper"){
-                return "You win! Scissors beat Paper!";
+                playerWins("You win! Scissors beat Paper!");
+                break;
             } else if(computerSelection === "scissors"){
-                return "Draw! Both chose scissors!";
+                victorText.textContent = "Draw! Both chose scissors!";
+                break;
             } else {
-                return "You lose! Scissors lose to paper!";
+                computerWins("You lose! Scissors lose to paper!");
+                break;
             }
         case "paper":
             if(computerSelection === "paper"){
-                return "Draw! Both chose paper!";
+                victorText.textContent = "Draw! Both chose paper!";
+                break;
             } else if(computerSelection === "scissors"){
-                return "You lose! Paper loses against Scissors";
+                computerWins("You lose! Paper loses against Scissors");
+                break;
             } else {
-                return "You win! Paper beats Rock!";
+                playerWins("You win! Paper beats Rock!");
+                break;
             }
         default:
-            return "Bad entry!";
-    }
-}
-
-function game() {
-    let playerWin = 0;
-    let computerWin = 0;
-    for(let i = 1; i < 6; i++){
-        console.log("Round " + i);
-        let round = gameRound(prompt("Insert rock,paper or scissors:").toLowerCase(), computerPlay());
-        console.log(round);
-        if(round.charAt(4) === 'w'){
-            playerWin++;
-        } else if(round.charAt(4) === 'l'){
-            computerWin++;
-        }
-    }
-    console.log(`Player has won ${playerWin} rounds.`);
-    console.log(`Computer has won ${computerWin} rounds.`);
-
-    if(playerWin > computerWin){
-        console.log("Player wins the game!");
-    } else if (computerWin > playerWin) {
-        console.log("Computer wins the game!");
-    } else {
-        console.log("The game ends in a draw!");
+            victorText.textContent = "Bad entry!";
+            break;
     }
 }
 
