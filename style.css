@@ -133,5 +133,27 @@ h1 {
     font-size: 24px;
 }
 
+.play-again {
+    background-color: rgba(255, 255, 255, 0.1);
+    font-size: 20px;
+    text-decoration: none;
+    border: 4px solid white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin: 20px;
+}
+
+.play-again:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: rgb(255, 233, 108);
+    border-color: rgb(255, 233, 108);
+}
+
+.main-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 

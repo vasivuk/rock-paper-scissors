@@ -9,6 +9,10 @@ const playerScore = document.querySelector("#player .points");
 const computerScore = document.querySelector("#computer .points");
 const round = document.querySelector(".round span");
 const victorText = document.querySelector(".victor-text");
+const playAgain = document.getElementById("play-again");
+playAgain.addEventListener('click', refreshPage);
+
+playAgain.style.visibility = "hidden";
 
 function handlerRock() {
     gameRound("rock", computerPlay());
@@ -22,7 +26,9 @@ function handlerScissors(){
     gameRound("scissors", computerPlay());
 }
 
-
+function refreshPage() {
+    window.location.reload();
+}
 
 
 function computerPlay(){
@@ -45,6 +51,7 @@ function playerWins(message){
         rock.removeEventListener('click', handlerRock);
         paper.removeEventListener('click', handlerPaper);
         scissors.removeEventListener('click', handlerScissors);
+        playAgain.style.visibility = "visible";
         return;        
     }
     victorText.textContent = message;
@@ -59,6 +66,7 @@ function computerWins(message){
         rock.removeEventListener('click', handlerRock);
         paper.removeEventListener('click', handlerPaper);
         scissors.removeEventListener('click', handlerScissors);
+        playAgain.style.visibility = "visible";
         return;
     }
     victorText.textContent = message;
