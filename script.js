@@ -1,14 +1,26 @@
 const rock = document.getElementById("rock");
-rock.addEventListener('click', () => gameRound("rock", computerPlay()));
+rock.addEventListener('click', handlerRock);
 const paper = document.getElementById("paper");
-paper.addEventListener('click', () => gameRound("paper", computerPlay()));
+paper.addEventListener('click', handlerPaper);
 const scissors = document.getElementById("scissors");
-scissors.addEventListener('click', () => gameRound("scissors", computerPlay()));
+scissors.addEventListener('click', handlerScissors);
 
 const playerScore = document.querySelector("#player .points");
 const computerScore = document.querySelector("#computer .points");
 const round = document.querySelector(".round span");
 const victorText = document.querySelector(".victor-text");
+
+function handlerRock() {
+    gameRound("rock", computerPlay());
+} 
+
+function handlerPaper() {
+    gameRound("paper", computerPlay());
+}
+
+function handlerScissors(){
+    gameRound("scissors", computerPlay());
+}
 
 
 
@@ -30,9 +42,9 @@ function playerWins(message){
     playerScore.textContent = ++score;
     if(score === 5) {
         victorText.textContent = "Player wins the game!";
-        rock.removeEventListener('click', () => gameRound("rock", computerPlay()));
-        paper.removeEventListener('click', () => gameRound("paper", computerPlay()));
-        scissors.removeEventListener('click', () => gameRound("scissors", computerPlay()));
+        rock.removeEventListener('click', handlerRock);
+        paper.removeEventListener('click', handlerPaper);
+        scissors.removeEventListener('click', handlerScissors);
         return;        
     }
     victorText.textContent = message;
@@ -44,9 +56,9 @@ function computerWins(message){
     computerScore.textContent = ++score;
     if(score === 5) {
         victorText.textContent = "Computer wins the game!";
-        rock.removeEventListener('click', () => gameRound("rock", computerPlay()));
-        paper.removeEventListener('click', () => gameRound("paper", computerPlay()));
-        scissors.removeEventListener('click', () => gameRound("scissors", computerPlay()));
+        rock.removeEventListener('click', handlerRock);
+        paper.removeEventListener('click', handlerPaper);
+        scissors.removeEventListener('click', handlerScissors);
         return;
     }
     victorText.textContent = message;
@@ -65,6 +77,7 @@ function gameRound(playerSelection, computerSelection){
                 break;
             } else {
                 victorText.textContent = "Draw! Both chose rock!";
+                round.textContent = parseInt(round.textContent) + 1;
                 break;
             }
         case "scissors":
@@ -73,6 +86,7 @@ function gameRound(playerSelection, computerSelection){
                 break;
             } else if(computerSelection === "scissors"){
                 victorText.textContent = "Draw! Both chose scissors!";
+                round.textContent = parseInt(round.textContent) + 1;
                 break;
             } else {
                 computerWins("You lose! Scissors lose to paper!");
@@ -81,6 +95,7 @@ function gameRound(playerSelection, computerSelection){
         case "paper":
             if(computerSelection === "paper"){
                 victorText.textContent = "Draw! Both chose paper!";
+                round.textContent = parseInt(round.textContent) + 1;
                 break;
             } else if(computerSelection === "scissors"){
                 computerWins("You lose! Paper loses against Scissors");
