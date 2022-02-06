@@ -1,6 +1,8 @@
-document.getElementById("rock").addEventListener('click', () => console.log("rock"));
-document.getElementById("paper").addEventListener('click', () => console.log("hello"));
-document.getElementById("scissors").addEventListener('click', () => console.log("hello"));
+const rock = document.getElementById("rock").addEventListener('click', () => console.log("rock"));
+const paper = document.getElementById("paper").addEventListener('click', () => console.log("hello"));
+const scissors = document.getElementById("scissors").addEventListener('click', () => playerScore.textContent = parseInt(playerScore.textContent) + 1);
+const playerScore = document.querySelector("#player .points");
+const computerScore = document.querySelector("#player .points");
 
 function computerPlay(){
     //Random number from 0 to 99
