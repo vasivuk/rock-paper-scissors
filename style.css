@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
 * {
     margin: 0;
     padding: 0;
     color: rgb(223, 223, 223);
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Open Sans', sans-serif;
 }
 
 body {
