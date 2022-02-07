@@ -31,7 +31,7 @@ body {
 h1 {
     font-size: 52px;
     font-weight: 900;
-    margin: 20px;
+    margin: 10px;
 }
 
 .header-section p {
@@ -114,7 +114,7 @@ h1 {
 .footer-section {
     background-color: #081b29;
     font-size: 20px;
-    padding: 10px;
+    padding: 15px;
     display: flex;
     align-self: stretch;
     display: flex;
