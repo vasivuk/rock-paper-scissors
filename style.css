@@ -94,6 +94,7 @@ h1 {
     border-radius: 30px;
     background-color: rgba(255, 255, 255, 0.1);
     box-shadow: rgba(255, 255, 255, 0.35) 0px 0px 25px;
+    transition: 0.1s ease;
 }
 
 .card i {
@@ -104,6 +105,8 @@ h1 {
 .card:hover {
     background-color: rgba(255, 255, 255, 0.3);
     border: solid 5px rgb(189, 166, 38);
+    transform: scale(1.05, 1.05);
+    transition: 0.1s ease;
 }
 
 /* FOOTER SECTION */
@@ -153,6 +156,7 @@ h1 {
     border-radius: 20px;
     margin: 20px;
 }
+
 
 
 .main-section {
